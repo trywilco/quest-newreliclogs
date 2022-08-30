@@ -17,7 +17,7 @@ skills:
 - debugging
 - communication
 questDependency: newrelic_performance
-slogan: Venture into the database...
+slogan: Complete with M.E.L.T
 messages:
   questStarted:
     person: head-of-rd
