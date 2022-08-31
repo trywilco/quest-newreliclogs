@@ -5,7 +5,7 @@ description: By now you’re probably comfortable with our production systems an
 summary: Awesome! You now know how to add a log monitoring tool to your application and use it to analyze log data and solve application issues. During this quest, you created a Heroku Syslog drain, attached it to your application, and registered it in New Relic. You then viewed log data from your application, investigated an error message, and fixed the code. Go ahead and pat yourself on the back!
 steps:
 - newrelic_logs_create_heroku_drain
-# - newrelic_logs_configure_heroku_logs
+- newrelic_logs_configure_heroku_logs
 # - newrelic_logs_detect_error
 # - newrelic_logs_fix_error
 prerequisites:
