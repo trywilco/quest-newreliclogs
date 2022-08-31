@@ -25,7 +25,7 @@ trigger:
         - conditionId: array_one
           name: heroku_log
           params:
-            - array: [${outputs.heroku_log_drains.value}]
+            - array: "[${outputs.heroku_log_drains.value}]"
             - conditionId: text_contains_strings
               params: 
                 test: ${item.url}
