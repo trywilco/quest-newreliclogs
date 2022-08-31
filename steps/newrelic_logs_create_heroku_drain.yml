@@ -27,9 +27,9 @@ trigger:
             name: heroku_log
             params:
               - array: ${outputs.heroku_log_drains.value}
-              - property: url
               - conditionId: text_contains_strings
                 params: 
+                  test: ${item.url}
                   strings: 
                     - newrelic.syslog.nr-data.net
         then:
