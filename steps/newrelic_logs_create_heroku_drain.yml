@@ -38,7 +38,7 @@ trigger:
             params:
               person: head-of-rd
               messages:
-              - text: Great job. I see you’ve added a syslog drain to your application. I fetched the token for you, so you can configure it in New Relic - `${outputs.heroku_log.token}`
+              - text: Great job. I see you’ve added a syslog drain to your application. I fetched the token for you, so you can configure it in New Relic - `${outputs.heroku_log.value.token}`
                 delay: 1000
           - actionId: finish_step
       else:
