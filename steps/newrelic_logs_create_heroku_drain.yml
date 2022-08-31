@@ -29,7 +29,7 @@ trigger:
             conditions:
               - conditionId: text_contains_strings
                 params: 
-                  test: ${item.url}
+                  text: ${item.url}
                   strings: 
                     - newrelic.syslog.nr-data.net
     then:
