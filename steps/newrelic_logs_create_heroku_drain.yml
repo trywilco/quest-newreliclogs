@@ -32,20 +32,20 @@ trigger:
                   text: ${item.url}
                   strings: 
                     - newrelic.syslog.nr-data.net
-    then:
-      do:
-        - actionId: bot_message
-          params:
-            person: head-of-rd
-            messages:
-            - text: Great job. I see you’ve added a syslog drain to your application. I fetched the token for you, so you can configure it in New Relic - `${outputs.heroku_log.token}`
-              delay: 1000
-        - actionId: finish_step
-    else:
-      do:
-        - actionId: bot_message
-          params:
-            person: head-of-rd
-            messages:
-            - text: Are you sure you’ve properly configured the drain? Something seems wrong
-              delay: 0
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+              - text: Great job. I see you’ve added a syslog drain to your application. I fetched the token for you, so you can configure it in New Relic - `${outputs.heroku_log.token}`
+                delay: 1000
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+              - text: Are you sure you’ve properly configured the drain? Something seems wrong
+                delay: 0
