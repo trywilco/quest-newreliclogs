@@ -22,7 +22,7 @@ trigger:
         path: /apps/${user.getBackendAppName()}/log-drains
     if:
       conditions:
-        - conditionId: array_one
+        - conditionId: array_find
           name: heroku_log
           params:
             array: ${outputs.heroku_log_drains.value}
