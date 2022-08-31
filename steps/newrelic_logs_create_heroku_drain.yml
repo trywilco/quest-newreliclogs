@@ -16,10 +16,10 @@ trigger:
   type: user_message_to_head-of-rd
   flowNode:
     do:
-    - actionId: heroku_api_call
+    - actionId: heroku_backend_api_call
       name: heroku_log_drains
       params:
-        path: /apps/${user.getBackendAppName()}/log-drains
+        path: /log-drains
     if:
       conditions:
         - conditionId: array_find
