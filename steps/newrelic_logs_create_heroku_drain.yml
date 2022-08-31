@@ -29,9 +29,9 @@ trigger:
               - array: ${outputs.heroku_log_drains.value}
               - property: url
               - conditionId: text_contains_strings
-                  params: 
-                    strings: 
-                      - newrelic.syslog.nr-data.net
+                params: 
+                  strings: 
+                    - newrelic.syslog.nr-data.net
         then:
           do:
             - actionId: bot_message
