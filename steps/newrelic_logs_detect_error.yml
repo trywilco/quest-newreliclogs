@@ -1,0 +1,38 @@
+id: newrelic_logs_detect_error
+hints:
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: head-of-rd
+      messages:
+      - text: I’ve been alerted by one of the on-call engineers that we have a production incident. Check out what’s going on with [your application](${user.frontendHerokuAppUrl}), and use the logs to figure out what went wrong. Let me know what’s the issue we’re having by copying and pasting the error message from the logs
+        delay: 1000
+trigger:
+  type: user_message_to_head-of-rd
+  flowNode:
+    if:
+      conditions:
+        - conditionId: text_contains_strings
+          params: 
+            text: ${userMessageText}
+            strings: 
+              - distincts is not a function
+              - most_use
+              - get_all_tag
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+              - text: Thanks, that totally makes sense now
+                delay: 1000
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+              - text: Hmm, I’m not sure that’s the issue, can you take a second look?
