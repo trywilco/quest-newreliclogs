@@ -1,1 +1,69 @@
+id: newrelic_logs_fix_error
+hints:
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: head-of-rd
+      messages:
+      - text: Alright, now that we know where the error is, we can address it. Please open a pull request with a fix, and I’ll review it when I have some time
+        delay: 1000
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    switch:
+      key: "${eventType}"
+      cases:
+        github_pr_opened:
+          do:
+          - actionId: bot_message
+            params:
+              person: devops
+              messages:
+              - text: Great job, let me go over the fix
+                delay: 1000
+          - actionId: github_pr_comment
+            params:
+              person: devops
+              message: Great job, let me go over the fix
+        github_pr_workflow_complete_success:
+          if:
+            conditions:
+            - conditionId: github_is_file_modified
+              paramsFramework:
+                node:
+                  fileName: backend/routes/api/tags.js
+                rails:
+                  fileName: backend/app/controllers/tags_controller.rb
+                python:
+                  fileName: backend/app/db/repositories/tags.py
 
+            then:
+              do:
+              - actionId: bot_message
+                params:
+                  person: devops
+                  messages:
+                  - text: This looks good, you can go ahead and merge
+                    delay: 1000
+              - actionId: github_pr_approve
+                params:
+                  person: devops
+                  message: This looks good, you can go ahead and merge
+
+            else:
+              do:
+              - actionId: bot_message
+                params:
+                  person: devops
+                  messages:
+                  - text: "I don’t think this will actually work, can you take a second look at your solution?
+                    delay: 1000
+              - actionId: github_pr_reject
+                params:
+                  person: devops
+                  message: I don’t think this will actually work, can you take a second look at your solution?
+
+        github_pr_merged:
+          do:
+          - actionId: finish_step
