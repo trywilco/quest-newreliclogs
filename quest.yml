@@ -7,7 +7,7 @@ steps:
 - newrelic_logs_create_heroku_drain
 - newrelic_logs_configure_heroku_logs
 - newrelic_logs_detect_error
-# - newrelic_logs_fix_error
+- newrelic_logs_fix_error
 prerequisites:
 - heroku_backend
 - heroku_frontend
