@@ -18,13 +18,13 @@ trigger:
           do:
           - actionId: bot_message
             params:
-              person: devops
+              person: head-of-rd
               messages:
               - text: Great job, let me go over the fix
                 delay: 1000
           - actionId: github_pr_comment
             params:
-              person: devops
+              person: head-of-rd
               message: Great job, let me go over the fix
         github_pr_workflow_complete_success:
           if:
@@ -42,7 +42,7 @@ trigger:
               do:
               - actionId: bot_message
                 params:
-                  person: devops
+                  person: head-of-rd
                   messages:
                   - text: This looks good, you can go ahead and merge
                     delay: 1000
@@ -55,13 +55,13 @@ trigger:
               do:
               - actionId: bot_message
                 params:
-                  person: devops
+                  person: head-of-rd
                   messages:
                   - text: I don’t think this will actually work, can you take a second look at your solution?
                     delay: 1000
               - actionId: github_pr_reject
                 params:
-                  person: devops
+                  person: head-of-rd
                   message: I don’t think this will actually work, can you take a second look at your solution?
 
         github_pr_merged:
