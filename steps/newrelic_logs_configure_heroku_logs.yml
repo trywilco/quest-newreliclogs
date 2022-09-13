@@ -9,7 +9,9 @@ startFlow:
       - text: Go ahead and use the token to [register the new log drain in New Relic](https://docs.newrelic.com/docs/logs/forward-logs/heroku-log-forwarding/#register-syslog), and let me know when you’re done.
         delay: 1000
 trigger:
-  type: user_message_to_head-of-rd
+  type: user_message
+  params:
+    person: head-of-rd
   flowNode:
     if:
       conditions:

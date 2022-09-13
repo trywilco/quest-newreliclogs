@@ -13,7 +13,9 @@ startFlow:
       - text: Follow [New Relic’s documentation](https://docs.newrelic.com/docs/logs/forward-logs/heroku-log-forwarding/#create-syslog-drain) to configure a new Heroku syslog drain, by completing steps 1-3, and let me know once you’ve added a new drain
         delay: 1000
 trigger:
-  type: user_message_to_head-of-rd
+  type: user_message
+  params:
+    person: head-of-rd
   flowNode:
     do:
     - actionId: heroku_backend_api_call
