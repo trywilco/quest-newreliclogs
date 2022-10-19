@@ -1,4 +1,6 @@
 id: newrelic_logs_configure_heroku_logs
+learningObjectives: 
+- Configuring Heroku logs 
 hints:
 startFlow:
   do:
