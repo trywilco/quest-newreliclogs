@@ -1,4 +1,6 @@
 id: newrelic_logs_detect_error
+learningObjectives: 
+- Detecting errors in logs 
 hints:
 startFlow:
   do:

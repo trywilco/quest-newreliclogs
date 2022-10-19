@@ -1,4 +1,6 @@
 id: newrelic_logs_create_heroku_drain
+learningObjectives: 
+- Creating a Heroku drain 
 hints:
 startFlow:
   do:

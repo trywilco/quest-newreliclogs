@@ -1,4 +1,6 @@
 id: newrelic_logs_fix_error
+learningObjectives: 
+- Fixing errors 
 hints:
 startFlow:
   do:
