@@ -19,11 +19,6 @@ skills:
 - observability
 - debugging
 - communication
-learningObjectives: 
-- Creating a Heroku drain 
-- Configuring Heroku logs 
-- Detecting errors in logs 
-- Fixing errors 
 questDependency: newrelic_performance
 slogan: Complete with M.E.L.T
 messages:
