@@ -21,6 +21,8 @@ skills:
 - communication
 questDependency: newrelic_performance
 slogan: Complete with M.E.L.T
+creatorsLogoUrls: 
+- "https://res.cloudinary.com/wilco/image/upload/v1670504368/companies-logos/New-Relic/new-relic-logo_icont2.svg"
 messages:
   questStarted:
     person: head-of-rd
