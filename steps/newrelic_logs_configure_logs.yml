@@ -5,27 +5,27 @@ hints:
 startFlow:
   do:
     - actionId: bot_message
-        params:
-          person: head-of-rd
-        paramsFramework:
-          node:
-            messages:
-              - text: "Go ahead and follow the instructions to configure logs forwarding [here](https://docs.newrelic.com/docs/logs/logs-context/configure-logs-context-nodejs/)."
-                delay: 1000
-              - text: "**Follow the first option in the guide to set up the logs.** :instruction[**Once you're done, open a PR and i'll review it quickly**]"
-                delay: 1000
-          rails:
-            messages:
-              - text: "Go ahead and follow the instructions to configure logs forwarding [here](https://docs.newrelic.com/docs/logs/logs-context/configure-logs-context-ruby/)."
-                delay: 1000
-              - text: "**Follow the first option in the guide to set up the logs.** :instruction[**Once you're done, open a PR and i'll review it quickly**]"
-                delay: 1000
-          python:
-            messages:
-              - text: "Go ahead and follow the instructions to configure logs forwarding [here](https://docs.newrelic.com/docs/logs/logs-context/configure-logs-context-python/)."
-                delay: 1000
-              - text: "**Follow the first option in the guide to set up the logs.** :instruction[**Once you're done, open a PR and i'll review it quickly**]"
-                delay: 1000
+      params:
+        person: head-of-rd
+      paramsFramework:
+        node:
+          messages:
+            - text: "Go ahead and follow the instructions to configure logs forwarding [here](https://docs.newrelic.com/docs/logs/logs-context/configure-logs-context-nodejs/)."
+              delay: 1000
+            - text: "**Follow the first option in the guide to set up the logs.** :instruction[**Once you're done, open a PR and i'll review it quickly**]"
+              delay: 1000
+        rails:
+          messages:
+            - text: "Go ahead and follow the instructions to configure logs forwarding [here](https://docs.newrelic.com/docs/logs/logs-context/configure-logs-context-ruby/)."
+              delay: 1000
+            - text: "**Follow the first option in the guide to set up the logs.** :instruction[**Once you're done, open a PR and i'll review it quickly**]"
+              delay: 1000
+        python:
+          messages:
+            - text: "Go ahead and follow the instructions to configure logs forwarding [here](https://docs.newrelic.com/docs/logs/logs-context/configure-logs-context-python/)."
+              delay: 1000
+            - text: "**Follow the first option in the guide to set up the logs.** :instruction[**Once you're done, open a PR and i'll review it quickly**]"
+              delay: 1000
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
