@@ -70,7 +70,7 @@ trigger:
               - conditionId: github_does_file_contain
                 equals: true
                 params:
-                  regex: "# application_logging.enabled = true"
+                  regex: "application_logging.enabled = true"
                 paramsFramework:
                   python:
                     fileName: backend/newrelic.ini
@@ -81,7 +81,7 @@ trigger:
               - conditionId: github_does_file_contain
                 equals: true
                 params:
-                  regex: "# application_logging.forwarding.enabled = true"
+                  regex: "application_logging.forwarding.enabled = true"
                 paramsFramework:
                   python:
                     fileName: backend/newrelic.ini
