@@ -4,8 +4,7 @@ level: beginner
 description: By now you’re probably comfortable with our production systems and have more visibility into what’s happening with them. Now we have some clarity when problems arise, but we also want to know what’s going on in our system and what went wrong (or just see what’s going on in the system). \n\nIn this quest, you will add a log monitoring tool to improve visibility into what is happening in the application’s production environment and use it to investigate issues.
 summary: Awesome! You now know how to add a log monitoring tool to your application and use it to analyze log data and solve application issues. During this quest, you created a Heroku Syslog drain, attached it to your application, and registered it in New Relic. You then viewed log data from your application, investigated an error message, and fixed the code. Go ahead and pat yourself on the back!
 steps:
-- newrelic_logs_create_heroku_drain
-- newrelic_logs_configure_heroku_logs
+- newrelic_logs_configure_logs
 - newrelic_logs_detect_error
 - newrelic_logs_fix_error
 resources:
@@ -22,18 +21,6 @@ skills:
 questDependency: newrelic_performance
 slogan: Complete with M.E.L.T
 messages:
-  questStarted:
-    person: head-of-rd
-    messages:
-    - text: https://media.giphy.com/media/EHfmq8F99yC8IHVTWV/giphy.gif
-    - text: Hey again!
-      delay: 800
-    - text: "You know the drill - before you do anything else, please **run the following command** on your repo: `${scriptCommand}`, and **let me know** once you're done."
-      delay: 1000
-  questStartedNotReady:
-    person: head-of-rd
-    messages:
-    - text: Let me know when you are ready.
   questFinished:
     person: head-of-rd
     messages:
