@@ -68,9 +68,9 @@ trigger:
 #                  pr_reject_message_name: missing_config
 
               - conditionId: github_does_file_contain
-                equals: true
+                equals: false
                 params:
-                  regex: "application_logging.enabled = true"
+                  regex: "# application_logging.enabled = true"
                 paramsFramework:
                   python:
                     fileName: backend/newrelic.ini
@@ -79,9 +79,9 @@ trigger:
                   pr_reject_message_name: application_logging_not_enabled
 
               - conditionId: github_does_file_contain
-                equals: true
+                equals: false
                 params:
-                  regex: "application_logging.forwarding.enabled = true"
+                  regex: "# application_logging.forwarding.enabled = true"
                 paramsFramework:
                   python:
                     fileName: backend/newrelic.ini
