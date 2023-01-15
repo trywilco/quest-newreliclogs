@@ -48,7 +48,13 @@ trigger:
           if:
             conditions:
               - conditionId: github_is_file_modified
-                fileName: charts/templates/anythink-backend-deployment.yaml
+                paramsFramework:
+                  python:
+                    fileName: charts/templates/anythink-backend-deployment.yaml
+                  node:
+                    fileName: charts/templates/anythink-backend-deployment.yaml
+                  rails:
+                    fileName: charts/templates/anythink-backend-deployment.yaml
                 onFalseParams:
                   pr_reject_message: Looks like you did not update the `anythink-backend-deployment.yaml`. Remember to add the relevant environment variables
                   pr_reject_message_name: deployment_yaml_not_updated
