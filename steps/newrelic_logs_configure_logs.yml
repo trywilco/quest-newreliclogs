@@ -10,21 +10,21 @@ startFlow:
         paramsFramework:
           node:
             messages:
-              - text: "Go ahead and follow the instructions to set the [Nodejs Instant Observability package](https://newrelic.com/instant-observability/node-js/01fdea36-5a15-44b4-a864-c4c99866735b)."
+              - text: "Go ahead and follow the instructions to configure logs forwarding [here](https://docs.newrelic.com/docs/logs/logs-context/configure-logs-context-nodejs/)."
                 delay: 1000
-              - text: "**Keep in mind you can skip the agent installation since you've already done it.** :instruction[**Let me know when you’re done**]"
+              - text: "**Follow the first option in the guide to set up the logs.** :instruction[**Once you're done, open a PR and i'll review it quickly**]"
                 delay: 1000
           rails:
             messages:
-              - text: "Go ahead and follow the instructions to set the [Rails Instant Observability package](https://newrelic.com/instant-observability/rails/c722b540-6e96-437d-9cd9-aa6625ab443f)."
+              - text: "Go ahead and follow the instructions to configure logs forwarding [here](https://docs.newrelic.com/docs/logs/logs-context/configure-logs-context-ruby/)."
                 delay: 1000
-              - text: "**Keep in mind you can skip the agent installation since you've already done it.** :instruction[**Let me know when you’re done**]"
+              - text: "**Follow the first option in the guide to set up the logs.** :instruction[**Once you're done, open a PR and i'll review it quickly**]"
                 delay: 1000
           python:
             messages:
-              - text: "Go ahead and follow the instructions to configure logs with context [here](https://docs.newrelic.com/docs/logs/logs-context/configure-logs-context-python/)."
+              - text: "Go ahead and follow the instructions to configure logs forwarding [here](https://docs.newrelic.com/docs/logs/logs-context/configure-logs-context-python/)."
                 delay: 1000
-              - text: "**You can follow the first option in the guide** :instruction[**Open a PR once you're done**]"
+              - text: "**Follow the first option in the guide to set up the logs.** :instruction[**Once you're done, open a PR and i'll review it quickly**]"
                 delay: 1000
 trigger:
   type: github_pr_lifecycle_status
@@ -42,37 +42,29 @@ trigger:
                     delay: 1000
             - actionId: github_pr_comment
               params:
-                person: devops
+                person: head-of-rd
                 message: Checking now.
         github_pr_workflow_complete_success:
           if:
             conditions:
               - conditionId: github_is_file_modified
                 paramsFramework:
+                  python:
+                    fileName: charts/templates/anythink-backend-deployment.yaml
                   node:
-                    fileName: backend/app.js
+                    fileName: charts/templates/anythink-backend-deployment.yaml
+                  rails:
+                    fileName: charts/templates/anythink-backend-deployment.yaml
                 onFalseParams:
-                  pr_reject_message: Did you make sure you added the `require` statement to the main app file?
-                  pr_reject_message_name: missing_require
+                  pr_reject_message: Looks like you did not update the `anythink-backend-deployment.yaml`. Remember to add the relevant environment variables
+                  pr_reject_message_name: deployment_yaml_not_updated
 
               - conditionId: github_is_file_modified
                 paramsFramework:
                   python:
-                    fileName: charts/templates/anythink-backend-deployment.yaml
-                onFalseParams:
-                  pr_reject_message: Looks like you did not update the `anythink-backend-deployment.yaml`. Remember you need to add two environment variables
-                  pr_reject_message_name: deployment_yaml_not_updated
-
-              - conditionId: github_is_file_added
-                paramsFramework:
-                  node:
-                    fileName: backend/newrelic.js
-                  rails:
-                    fileName: backend/config/newrelic.yml
-                  python:
                     fileName: backend/newrelic.ini
                 onFalseParams:
-                  pr_reject_message: Did you updated the two required flags in thr `newrelic.ini` file?
+                  pr_reject_message: Did you update the required flags in the `newrelic.ini` file?
                   pr_reject_message_name: missing_config
 
               - conditionId: github_does_file_contain
@@ -80,10 +72,6 @@ trigger:
                 params:
                   regex: "# application_logging.enabled = true"
                 paramsFramework:
-                  node:
-                    fileName: backend/newrelic.js
-                  rails:
-                    fileName: backend/config/newrelic.yml
                   python:
                     fileName: backend/newrelic.ini
                 onFalseParams:
@@ -95,49 +83,36 @@ trigger:
                 params:
                   regex: "# application_logging.forwarding.enabled = true"
                 paramsFramework:
-                  node:
-                    fileName: backend/newrelic.js
-                  rails:
-                    fileName: backend/config/newrelic.yml
                   python:
                     fileName: backend/newrelic.ini
                 onFalseParams:
                   pr_reject_message: Did you make sure `application_logging.forwarding.enabled` flag is set to `true`? Make sure it is not commented out.
                   pr_reject_message_name: logging_forwarding_not_enabled
 
-              - conditionId: github_is_file_added
-                equals: false
-                paramsFramework:
-                  node:
-                    fileName: backend/package-lock.json
-                onFalseParams:
-                  pr_reject_message: I see you have both `package-lock.json` and `yarn.lock`. This can cause issues in the build. Let’s stick with just yarn for now, and remove the `package-lock.json`.
-                  pr_reject_message_name: npm_lock_added
-
             then:
               do:
                 - actionId: bot_message
                   params:
-                    person: devops
+                    person: head-of-rd
                     messages:
                       - text: Looking good! You can merge the PR now.
                         delay: 1000
                 - actionId: github_pr_approve
                   params:
-                    person: devops
+                    person: head-of-rd
                     message: Looking good! You can merge the PR now.
 
             else:
               do:
                 - actionId: bot_message
                   params:
-                    person: devops
+                    person: head-of-rd
                     messages:
                       - text: ${pr_reject_message}
                         delay: 1000
                 - actionId: github_pr_reject
                   params:
-                    person: devops
+                    person: head-of-rd
                     message: ${pr_reject_message}
                     messageName: ${pr_reject_message_name}
 
