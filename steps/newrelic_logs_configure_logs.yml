@@ -48,7 +48,8 @@ trigger:
           if:
             conditions:
               - conditionId: github_is_file_modified
-                fileName: charts/templates/anythink-backend-deployment.yaml
+                params:
+                  fileName: charts/templates/anythink-backend-deployment.yaml
 #
 #                paramsFramework:
 #                  python:
