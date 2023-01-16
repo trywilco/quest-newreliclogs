@@ -50,14 +50,6 @@ trigger:
               - conditionId: github_is_file_modified
                 params:
                   fileName: charts/templates/anythink-backend-deployment.yaml
-#
-#                paramsFramework:
-#                  python:
-#                    fileName: charts/templates/anythink-backend-deployment.yaml
-#                  node:
-#                    fileName: charts/templates/anythink-backend-deployment.yaml
-#                  rails:
-#                    fileName: charts/templates/anythink-backend-deployment.yaml
                 onFalseParams:
                   pr_reject_message: Looks like you did not update the `anythink-backend-deployment.yaml`. Remember to add the relevant environment variables
                   pr_reject_message_name: deployment_yaml_not_updated
@@ -122,3 +114,78 @@ trigger:
         github_pr_merged:
           do:
             - actionId: finish_step
+
+
+solution:
+  do:
+  - actionId: bot_message
+      params:
+        person: head-of-rd
+      paramsFramework:
+        node:
+          messages:
+            - text: "In the guide, we are instructed to with two steps"
+              delay: 1000
+            - text: |
+                     The first one is adding the following to the `newrelic.js` file, if it is not already set.
+                    ```application_logging: {
+                      forwarding: {
+                        enabled: true
+                      }
+                    }```
+              delay: 1000
+            - text: | 
+                    "The second step is adding an environment variable. 
+                    This can be done by going to the deployment file `charts/templates/anythink-backend-deployment.yaml` 
+                    and adding to `spec.container.env` th following: 
+                    ```            - name: NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED
+                                    value: \"true\"
+                      "
+              delay: 1000
+            - text: "And now you're only left with opening a PR with these changes"
+              delay: 1000
+        rails:
+          messages:
+            - text: "In the guide, we are instructed to with two steps"
+              delay: 1000
+            - text: |
+                The first one is adding the following to the `newrelic.yml` file, if it is not already set.
+                ```application_logging:
+                    forwarding:
+                      enabled: true
+                 }
+                }```
+              delay: 1000
+            - text: |
+                "The second step is adding an environment variable. 
+                This can be done by going to the deployment file `charts/templates/anythink-backend-deployment.yaml` 
+                and adding to `spec.container.env` th following: 
+                ```            - name: NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED
+                                value: \"true\"
+                  "
+              delay: 1000
+            - text: "And now you're only left with opening a PR with these changes"
+              delay: 1000
+        python:
+          messages:
+            - text: "In the guide, we are instructed to with two steps"
+              delay: 1000
+            - text: |
+                The first one is adding the following to the `newrelic.ini` file, and make sure it is not commented out.
+                ```
+                application_logging.enabled=true
+                application_logging.forwarding.enabled=true
+                ```
+              delay: 1000
+            - text: |
+                "The second step is adding two environment variable. 
+                This can be done by going to the deployment file `charts/templates/anythink-backend-deployment.yaml` 
+                and adding to `spec.container.env` th following: 
+                ```            - name: NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED
+                                value: \"true\"
+                  "
+                and the same for NEW_RELIC_APPLICATION_LOGGING_ENABLED
+
+              delay: 1000
+            - text: "And now you're only left with opening a PR with these changes"
+              delay: 1000
