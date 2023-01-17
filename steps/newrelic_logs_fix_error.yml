@@ -1,7 +1,8 @@
 id: newrelic_logs_fix_error
 learningObjectives: 
-- Fixing errors 
+  - Fixing errors
 hints:
+  - Did you find where we call the unndefined function? Search for it in the code base, and try to figure out what's the correct call should be
 startFlow:
   do:
   - actionId: bot_message

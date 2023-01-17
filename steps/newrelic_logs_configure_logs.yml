@@ -2,6 +2,7 @@ id: newrelic_logs_configure_logs
 learningObjectives:
   - Configuring logs
 hints:
+  - The New Relic agent is already installed on your app, the only thing left is adding an environment variable. The env vars are located in the `charts/templates/anythink-backend-deployment.yaml` file
 startFlow:
   do:
     - actionId: bot_message

@@ -1,7 +1,8 @@
 id: newrelic_logs_detect_error
 learningObjectives: 
-- Detecting errors in logs 
+  - Detecting errors in logs
 hints:
+  - We now have our logs forwarding to New Relic all set up. Check the relevant dashboard to find out what's going on. I advise to start either with the `Logs` or the `Errors inbox` boards
 startFlow:
   do:
   - actionId: bot_message
