@@ -2,7 +2,7 @@ id: newrelic_logs_fix_error
 learningObjectives: 
   - Fixing errors
 hints:
-  - Did you find where we call the unndefined function? Search for it in the code base, and try to figure out what's the correct call should be
+  - Did you find where we call the undefined function? Search for it in the code base, and try to figure out what's the correct call should be
 startFlow:
   do:
   - actionId: bot_message
@@ -82,17 +82,17 @@ solution:
           messages:
             - text: "Let's fix the source of this issue! Go ahead to ` backend/routes/api/tags.js`. Find the call with a typo to the non existing function `distincts`, and fix it! "
               delay: 1000
-            - text: "Once you're finished open a PR and I'll be there for you"
+            - text: "Don't forget to open a PR once you're finished, and I'll be there for you"
               delay: 1000
         rails:
           messages:
             - text: "Let's fix the source of this issue! Go ahead to `backend/app/controllers/tags_controller.rb`. Find the call with a typo  to the non existing function `most_use`, and fix it! "
               delay: 1000
-            - text: "Once you're finished open a PR and I'll be there for you"
+            - text: "Don't forget to open a PR once you're finished, and I'll be there for you"
               delay: 1000
         python:
           messages:
             - text: "Let's fix the source of this issue! Go ahead to `backend/app/db/repositories/tags.py`. Find the call with a typo to the non existing function `get_all_tag`, and fix it! "
               delay: 1000
-            - text: "Once you're finished open a PR and I'll be there for you"
+            - text: "Don't forget to open a PR once you're finished, and I'll be there for you"
               delay: 1000
