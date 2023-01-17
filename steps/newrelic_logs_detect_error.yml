@@ -44,10 +44,10 @@ trigger:
 solution:
   do:
     - actionId: bot_message
-        params:
-          person: head-of-rd
-          messages:
-            - text: Well, the best place to find what error we are having in our production app, is going to our brand new logging dashboard
-              delay: 1000
-            - text: Sign in with your New Relic account, go to `APM & services` -> `Triage` -> `Errors inbox`, and there you'll see the error message.
-              delay: 1000
+      params:
+        person: head-of-rd
+        messages:
+          - text: Well, the best place to find what error we are having in our production app, is going to our brand new logging dashboard
+            delay: 1000
+          - text: Sign in with your New Relic account, go to `APM & services` -> `Triage` -> `Errors inbox`, and there you'll see the error message.
+            delay: 1000
