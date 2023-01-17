@@ -128,20 +128,20 @@ solution:
           - text: "In the guide, we are instructed to with two steps"
             delay: 1000
           - text: |
-                   The first one is adding the following to the `newrelic.js` file, if it is not already set.
-                  ```application_logging: {
-                    forwarding: {
-                      enabled: true
-                    }
-                  }```
+              The first one is adding the following to the `newrelic.js` file, if it is not already set.
+              ```application_logging: {
+                forwarding: {
+                  enabled: true
+                }
+              }```
             delay: 1000
           - text: | 
-                  "The second step is adding an environment variable. 
-                  This can be done by going to the deployment file `charts/templates/anythink-backend-deployment.yaml` 
-                  and adding to `spec.container.env` th following: 
-                  ```            - name: NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED
-                                  value: \"true\"
-                    "
+              The second step is adding an environment variable. 
+              This can be done by going to the deployment file `charts/templates/anythink-backend-deployment.yaml` 
+              and adding to `spec.container.env` th following: 
+              ```            - name: NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED
+                              value: \"true\"
+              ```
             delay: 1000
           - text: "And now you're only left with opening a PR with these changes"
             delay: 1000
@@ -158,12 +158,12 @@ solution:
               }```
             delay: 1000
           - text: |
-              "The second step is adding an environment variable. 
+              The second step is adding an environment variable. 
               This can be done by going to the deployment file `charts/templates/anythink-backend-deployment.yaml` 
               and adding to `spec.container.env` th following: 
               ```            - name: NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED
                               value: \"true\"
-                "
+              ```
             delay: 1000
           - text: "And now you're only left with opening a PR with these changes"
             delay: 1000
@@ -179,12 +179,12 @@ solution:
               ```
             delay: 1000
           - text: |
-              "The second step is adding two environment variable. 
+              The second step is adding two environment variable. 
               This can be done by going to the deployment file `charts/templates/anythink-backend-deployment.yaml` 
               and adding to `spec.container.env` th following: 
               ```            - name: NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED
                               value: \"true\"
-                "
+              ```
               and the same for NEW_RELIC_APPLICATION_LOGGING_ENABLED
 
             delay: 1000
