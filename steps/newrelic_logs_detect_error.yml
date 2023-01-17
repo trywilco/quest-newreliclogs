@@ -2,15 +2,18 @@ id: newrelic_logs_detect_error
 learningObjectives: 
   - Detecting errors in logs
 hints:
-  - We now have our logs forwarding to New Relic all set up. Check the relevant dashboard to find out what's going on. I advise to start either with the `Logs` or the `Errors inbox` boards
+  - We now have our logs forwarding to New Relic all set up. Check the relevant dashboard to find out what's going on. I advise to start either with the `Logs` or the `Errors inbox` boards. If you don't see any relevant logs, it might be a good idea to start a user flow and make sure everything works. Create a user in the app and try to add an item,
 startFlow:
   do:
   - actionId: bot_message
     params:
       person: head-of-rd
       messages:
-      - text: I’ve been alerted by one of the on-call engineers that we have a production incident. Check out what’s going on with your application, and use the logs to figure out what went wrong. Let me know what’s the issue we’re having by copying and pasting the error message from the logs
+      - text: I’ve been alerted by one of the on-call engineers that we have a production incident. Check out what’s going on with your application, and use the logs to figure out what went wrong.
         delay: 1000
+      - text: And to make sure the error is replicated, try to sign in to the app and add an item. **Let me know what’s the issue we’re having by copying and pasting the error message from the logsץ**
+        delay: 1000
+
 trigger:
   type: user_message
   params:
