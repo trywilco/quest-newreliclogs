@@ -125,7 +125,7 @@ solution:
     paramsFramework:
       node:
         messages:
-          - text: "In the guide, we are instructed to with two steps"
+          - text: In the New Relic guide, we're instructed to follow two steps
             delay: 1000
           - text: |
               The first one is adding the following to the `newrelic.js` file, if it is not already set.
@@ -149,7 +149,7 @@ solution:
             delay: 1000
       rails:
         messages:
-          - text: "In the guide, we are instructed to with two steps"
+          - text: In the New Relic guide, we're instructed to follow two steps
             delay: 1000
           - text: |
               The first one is adding the following to the `newrelic.yml` file, if it is not already set.
@@ -174,7 +174,7 @@ solution:
             delay: 1000
       python:
         messages:
-          - text: "In the guide, we are instructed to with two steps"
+          - text: In the New Relic guide, we're instructed to follow two steps
             delay: 1000
           - text: |
               The first one is adding the following to the `newrelic.ini` file, and make sure it is not commented out.

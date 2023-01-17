@@ -2,7 +2,7 @@ id: newrelic_logs_detect_error
 learningObjectives: 
   - Detecting errors in logs
 hints:
-  - We now have our logs forwarding to New Relic all set up. Check the relevant dashboard to find out what's going on. I advise to start either with the `Logs` or the `Errors inbox` boards. If you don't see any relevant logs, it might be a good idea to start a user flow and make sure everything works. Create a user in the app and try to add an item,
+  - We now have our logs forwarding to New Relic all set up. Check the relevant dashboard to find out what's going on. I'd advise to start either with the `Logs` or the `Errors inbox` boards. If you don't see any relevant logs, it might be a good idea to start a user flow and make sure everything works. Create a user in the app and try to add an item, then go to check the logs and if you got any error messages.
 startFlow:
   do:
   - actionId: bot_message
