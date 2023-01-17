@@ -18,7 +18,7 @@ skills:
 - observability
 - debugging
 - communication
-questDependency: newrelic_performance
+questDependency: newrelic_observability
 slogan: Complete with M.E.L.T
 messages:
   questFinished:
