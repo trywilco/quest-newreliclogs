@@ -121,7 +121,7 @@ solution:
   do:
   - actionId: bot_message
       params:
-        person: head-of-rd
+      person: head-of-rd
       paramsFramework:
         node:
           messages:
