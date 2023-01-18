@@ -1,15 +1,19 @@
 id: newrelic_logs_detect_error
 learningObjectives: 
-- Detecting errors in logs 
+  - Detecting errors in logs
 hints:
+  - We now have our logs forwarding to New Relic all set up. Check the relevant dashboard to find out what's going on. I'd advise to start either with the `Logs` or the `Errors inbox` boards. If you don't see any relevant logs, it might be a good idea to start a user flow and make sure everything works. Create a user in the app and try to add an item, then go to check the logs and if you got any error messages.
 startFlow:
   do:
   - actionId: bot_message
     params:
       person: head-of-rd
       messages:
-      - text: I’ve been alerted by one of the on-call engineers that we have a production incident. Check out what’s going on with [your application](${user.frontendHerokuAppUrl}), and use the logs to figure out what went wrong. Let me know what’s the issue we’re having by copying and pasting the error message from the logs
+      - text: I’ve been alerted by one of the on-call engineers that we have a production incident. Check out what’s going on with your application, and use the logs to figure out what went wrong.
         delay: 1000
+      - text: And to make sure the error is replicated, try to sign in to the app and add an item. **Let me know what’s the issue we’re having by copying and pasting the error message from the logsץ**
+        delay: 1000
+
 trigger:
   type: user_message
   params:
@@ -40,3 +44,13 @@ trigger:
               person: head-of-rd
               messages:
               - text: Hmm, I’m not sure that’s the issue, can you take a second look?
+solution:
+  do:
+    - actionId: bot_message
+      params:
+        person: head-of-rd
+        messages:
+          - text: Well, the best place to find what error we are having in our production app, is going to our brand new logging dashboard
+            delay: 1000
+          - text: Sign in with your New Relic account, go to `APM & services` -> `Triage` -> `Errors inbox`, and there you'll see the error message.
+            delay: 1000
