@@ -1,4 +1,4 @@
-id: newrelic_logs_test3
+id: newrelic_logs
 title: Watching the Watchman
 level: beginner
 description: By now you’re probably comfortable with our production systems and have more visibility into what’s happening with them. Now we have some clarity when problems arise, but we also want to know what’s going on in our system and what went wrong (or just see what’s going on in the system). \n\nIn this quest, you will add a log monitoring tool to improve visibility into what is happening in the application’s production environment and use it to investigate issues.
