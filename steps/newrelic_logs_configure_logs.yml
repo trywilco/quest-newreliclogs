@@ -70,7 +70,7 @@ trigger:
                   fileName: charts/templates/anythink-backend-deployment.yaml
                   regex: "value: \"true\""
                 onFalseParams:
-                  pr_reject_message: Did you make sure the new env var value is of type string, should be like so: `"true"`?
+                  pr_reject_message: Did you make sure the new env var value is of type string, should be like so `"true"`?
                   pr_reject_message_name: env_var_bad_type
 
               - conditionId: github_is_file_modified
