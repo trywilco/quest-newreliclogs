@@ -10,7 +10,6 @@ steps:
 resources:
   - name: k8s
 repository: https://github.com/trywilco/Anythink-Market-NewRelic
-  
 duration: 1
 skills:
 - devops
@@ -25,5 +24,5 @@ messages:
   questFinished:
     person: head-of-rd
     messages:
-    - text: Amazing job, now your application is fully monitored by New Relic, completed with Metrics, Events, Logs, and Traces! There’s so much we can achieve, so **[click here](${platform.home})** when you're ready for your next project :)
+    - text: Amazing job, now your application is fully monitored by New Relic, completed with Metrics, Events, Logs, and Traces!
       delay: 2500

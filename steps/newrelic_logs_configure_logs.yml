@@ -54,6 +54,24 @@ trigger:
                 onFalseParams:
                   pr_reject_message: Looks like you did not update the `anythink-backend-deployment.yaml`. Remember to add the relevant environment variables
                   pr_reject_message_name: deployment_yaml_not_updated
+                  
+              - conditionId: github_does_file_contain
+                equals: true
+                params:
+                  fileName: charts/templates/anythink-backend-deployment.yaml
+                  regex: "name: NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED"
+                onFalseParams:
+                  pr_reject_message: Did you add `NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED` env var with value `"true"`?
+                  pr_reject_message_name: env_var_missing
+                  
+              - conditionId: github_does_file_contain
+                equals: true
+                params:
+                  fileName: charts/templates/anythink-backend-deployment.yaml
+                  regex: "value: \"true\""
+                onFalseParams:
+                  pr_reject_message: Did you make sure the new env var value is of type string, should be like so `"true"`?
+                  pr_reject_message_name: env_var_bad_type
 
               - conditionId: github_is_file_modified
                 paramsFramework:
