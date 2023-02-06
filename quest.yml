@@ -9,7 +9,7 @@ steps:
 - newrelic_logs_fix_error
 resources:
   - name: k8s
-repository: https://github.com/trywilco/Anythink-Market-NewRelic
+repository: https://github.com/trywilco/Anythink-Market-NewRelic-Logs
 duration: 1
 skills:
 - devops
